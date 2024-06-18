@@ -26,14 +26,14 @@ def lambda_handler(event, context):
         "start": start_time.isoformat(),
         "end": end_time.isoformat(),
         "metrics": [
-            ["DX", "VirtualInterfacePpsIngress", "ConnectionId", "dxcon-fg4kumqm", "VirtualInterfaceId", "dxvif-fgfcmngk"],
-            [ ".", "VirtualInterfacePpsEgress", "ConnectionId", "dxcon-fg4kumqm", "VirtualInterfaceId", "dxvif-fgfcmngk"],
-            [ ".", "VirtualInterfaceBpsIngress", "ConnectionId", "dxcon-fg4kumqm", "VirtualInterfaceId", "dxvif-fgfcmngk"],
-            [ ".", "VirtualInterfaceBpsEgress", "ConnectionId", "dxcon-fg4kumqm", "VirtualInterfaceId", "dxvif-fgfcmngk"],
-            [ ".", "VirtualInterfacePpsIngress", "ConnectionId", "dxcon-fgqihqb2", "VirtualInterfaceId", "dxvif-fgq7t21s"],
-            [ ".", "VirtualInterfacePpsEgress", "ConnectionId", "dxcon-fgqihqb2", "VirtualInterfaceId", "dxvif-fgq7t21s"],
-            [ ".", "VirtualInterfaceBpsIngress", "ConnectionId", "dxcon-fgqihqb2", "VirtualInterfaceId", "dxvif-fgq7t21s"],
-            [ ".", "VirtualInterfaceBpsEgress", "ConnectionId", "dxcon-fgqihqb2", "VirtualInterfaceId", "dxvif-fgq7t21s"]
+            ["DX", "VirtualInterfacePpsIngress", "ConnectionId", "dxcon-XXXXXX", "VirtualInterfaceId", "dxvif-XXXXXX"],
+            [ ".", "VirtualInterfacePpsEgress", "ConnectionId", "dxcon-XXXXXX", "VirtualInterfaceId", "dxvif-XXXXXX"],
+            [ ".", "VirtualInterfaceBpsIngress", "ConnectionId", "dxcon-XXXXXX", "VirtualInterfaceId", "dxvif-XXXXXX"],
+            [ ".", "VirtualInterfaceBpsEgress", "ConnectionId", "dxcon-XXXXXX", "VirtualInterfaceId", "dxvif-XXXXXX"],
+            [ ".", "VirtualInterfacePpsIngress", "ConnectionId", "dxcon-YYYYYY", "VirtualInterfaceId", "dxvif-YYYYYY"],
+            [ ".", "VirtualInterfacePpsEgress", "ConnectionId", "dxcon-YYYYYY", "VirtualInterfaceId", "dxvif-YYYYYY"],
+            [ ".", "VirtualInterfaceBpsIngress", "ConnectionId", "dxcon-YYYYYY", "VirtualInterfaceId", "dxvif-YYYYYY"],
+            [ ".", "VirtualInterfaceBpsEgress", "ConnectionId", "dxcon-YYYYYY", "VirtualInterfaceId", "dxvif-YYYYYY"]
         ],
         "period": 300,
         "stat": "Average",
@@ -65,7 +65,7 @@ def lambda_handler(event, context):
     # Send report via SNS
     try:
         sns_response = sns.publish(
-            TopicArn='arn:aws:sns:us-east-1:176436512199:DX_Alarms',
+            TopicArn='arn:aws:sns:us-east-1:XXXXXXXXXXXX:DX_Alarms',
             Message=report_content,
             Subject='DX Metrics Report',
             MessageAttributes={
